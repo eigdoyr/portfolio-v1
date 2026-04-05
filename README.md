@@ -1,73 +1,61 @@
-# React + TypeScript + Vite
+# Ryodgie Barnatia - Portfolio V1 ✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website — Digital & Visual Designer | Front-end Developer.
 
-Currently, two official plugins are available:
+## Stack 🧩
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React + TypeScript
+- Vite
+- Framer Motion
+- Lenis
+- Vanilla CSS
+- React Router DOM
 
-## React Compiler
+## Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+    src/
+    ├── components/       # Reusable UI pieces
+    │   ├── Cursor/
+    │   ├── DetailItem/
+    │   ├── LicenseCard/
+    │   ├── Navbar/
+    │   ├── PageTransition/
+    │   └── ProjectCard/
+    ├── sections/         # Full-page layout units
+    │   ├── Hero/
+    │   ├── Work/
+    │   └── About/
+    ├── hooks/            # Custom React hooks
+    ├── data/             # All content lives here
+    ├── styles/           # Design tokens + global resets
+    └── types/            # Shared TypeScript interfaces
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+    npm install
+    npm run dev
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Build
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+    npm run build
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Features ☕️
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- ID card with lanyard drop and swing animation
+- Work overlay with spread cards and hover lift
+- Mobile card stack with drag to swipe
+- Custom cursor that expands to VIEW on card hover
+- Lenis smooth scroll on case study pages
+- Framer Motion page transitions
+- Fluid typography via CSS clamp()
+- About page placeholder
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Roadmap ✅
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- [ ] Add real project images and content
+- [ ] Build out About page
+- [ ] Deploy to Vercel
+
+---
+
+© 2026 Ryodgie Barnatia
