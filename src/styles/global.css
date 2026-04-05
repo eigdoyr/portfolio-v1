@@ -31,3 +31,35 @@ body.custom-cursor,
 body.custom-cursor * {
   cursor: none !important;
 }
+
+/* ── Skip to content — keyboard accessibility ─────────────── */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: var(--space-md);
+  z-index: 99999;
+  background: var(--color-dark);
+  color: var(--color-bg);
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-body);
+  font-family: var(--font-sans);
+  text-decoration: none;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-md);
+}
+
+/* ── Visually hidden — screen readers only ────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
