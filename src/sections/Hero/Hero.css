@@ -87,11 +87,11 @@
   position: relative;
   background-color: var(--color-card-bg);
   border-radius: var(--radius-lg);
-  padding: 28px;
+  padding: 24px 22px;
   color: var(--color-card-text-primary);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.3),
     inset 0 1px 1px rgba(255, 255, 255, 0.1);
@@ -207,14 +207,20 @@
   font-size: var(--font-size-label);
   color: var(--color-card-text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 4px;
+  letter-spacing: 0.03em;
+  margin-bottom: 2px;
   display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .value {
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ── Card grid layouts ────────────────────────────────────── */
@@ -239,5 +245,5 @@
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-sm);
+  gap: 8px;
 }
