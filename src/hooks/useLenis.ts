@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 
 export const useLenis = (enabled: boolean): void => {
+  const rafRef = useRef<number>(0);
+
   useEffect(() => {
     if (!enabled) return;
 
@@ -9,11 +11,14 @@ export const useLenis = (enabled: boolean): void => {
 
     const raf = (time: number) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafRef.current = requestAnimationFrame(raf);
     };
 
-    requestAnimationFrame(raf);
+    rafRef.current = requestAnimationFrame(raf);
 
-    return () => lenis.destroy();
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      lenis.destroy();
+    };
   }, [enabled]);
 };
