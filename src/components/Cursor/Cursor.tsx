@@ -1,11 +1,20 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMousePosition } from "../../hooks/useMousePosition";
+import { useRouteState } from "../../hooks/useRouteState";
 import "./Cursor.css";
 
 const Cursor = () => {
   const { x, y } = useMousePosition();
   const [isHovering, setIsHovering] = useState(false);
+  const { isProjects } = useRouteState();
+
+  // Reset hover state when leaving the projects route
+  useEffect(() => {
+    if (!isProjects) {
+      setIsHovering(false);
+    }
+  }, [isProjects]);
 
   useEffect(() => {
     document.body.classList.add("custom-cursor");
@@ -40,12 +49,7 @@ const Cursor = () => {
         width: isHovering ? 80 : 12,
         height: isHovering ? 80 : 12,
       }}
-      transition={{
-        type: "spring",
-        stiffness: 300,
-        damping: 28,
-        mass: 0.5,
-      }}
+      transition={{ type: "spring", stiffness: 300, damping: 28, mass: 0.5 }}
     >
       <AnimatePresence>
         {isHovering && (
