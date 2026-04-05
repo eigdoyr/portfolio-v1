@@ -1,0 +1,87 @@
+.work-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease-out-expo);
+}
+
+.work-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.work-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-card {
+  position: absolute;
+  width: 440px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform var(--transition-slow),
+    opacity var(--transition-slow);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-number {
+  position: absolute;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.1em;
+  color: #fff;
+  z-index: 2;
+}
+
+.mobile-dots {
+  position: absolute;
+  bottom: 10%;
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.15);
+  transition:
+    background var(--transition-base),
+    transform var(--transition-base);
+}
+
+.dot.active {
+  background: var(--color-dark);
+  transform: scale(2);
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    width: 75vw;
+    max-width: 300px;
+  }
+}
