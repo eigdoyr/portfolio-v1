@@ -30,7 +30,6 @@ const ProjectCard = ({
     onDragEnd={onDragEnd}
     style={{ zIndex: isMobile ? total - index : card.zIndex }}
     initial={{ opacity: 0, y: 100 }}
-    exit={{ opacity: 0, y: 100 }}
     animate={{
       opacity: 1,
       scale: isMobile ? 1 - index * 0.05 : card.scale,
@@ -53,7 +52,6 @@ const ProjectCard = ({
         ease: [0.2, 0.8, 0.2, 1],
       },
     }}
-    transition={{ type: "spring", stiffness: 260, damping: 28 }}
     whileHover={
       !isMobile
         ? {
@@ -68,12 +66,7 @@ const ProjectCard = ({
         : {}
     }
   >
-    <ImageWithSkeleton
-      src={card.img}
-      alt={card.title}
-      className="project-image"
-    />
-    <span className="project-number">{card.id}</span>
+    <ImageWithSkeleton src={card.img} alt={card.title} loading="lazy" />
     <span className="project-number">{card.id}</span>
   </motion.div>
 );
