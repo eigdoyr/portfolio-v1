@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { projectsData } from "../../data/projects";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import { AnimatePresence } from "framer-motion";
 import type { Project } from "../../types";
 import "./Work.css";
 
@@ -37,8 +38,9 @@ const Work = ({ isOpen }: WorkProps) => {
   return (
     <motion.div
       className="work-overlay"
+      role="dialog"
       aria-modal="true"
-      aria-label="Work overlay"
+      aria-label="Work — selected projects"
       animate={{
         opacity: isOpen ? 1 : 0,
         visibility: isOpen ? "visible" : "hidden",
