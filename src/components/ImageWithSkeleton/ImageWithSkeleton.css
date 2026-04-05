@@ -1,0 +1,28 @@
+.img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-muted);
+}
+
+.img-skeleton,
+.img-error {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.img-error {
+  background-color: var(--color-muted);
+}
+
+.img-loaded {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}

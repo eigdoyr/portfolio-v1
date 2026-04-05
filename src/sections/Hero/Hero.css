@@ -185,6 +185,8 @@
 .profile-image {
   width: 72px;
   height: 72px;
+  min-width: 72px; /* ← prevents flex shrink */
+  min-height: 72px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid rgba(255, 255, 255, 0.1);

@@ -3,6 +3,7 @@ import { useParams, Navigate, Link } from "react-router-dom";
 import { projectsData } from "../../data/projects";
 import PageTransition from "../../components/PageTransition/PageTransition";
 import type { Project } from "../../types";
+import ImageWithSkeleton from "../../components/ImageWithSkeleton/ImageWithSkeleton";
 import "./WorkDetail.css";
 
 interface ProjectThumbProps {
@@ -51,7 +52,11 @@ const WorkDetail = () => {
         </header>
 
         <section className="cs-hero-image">
-          <img src={project.img} alt={project.title} />
+          <ImageWithSkeleton
+            src={project.img}
+            alt={project.title}
+            loading="eager"
+          />
         </section>
 
         <section className="cs-content">

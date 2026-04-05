@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import type { Project } from "../../types";
+import ImageWithSkeleton from "../ImageWithSkeleton/ImageWithSkeleton";
 
 interface ProjectCardProps {
   card: Project;
@@ -67,13 +68,12 @@ const ProjectCard = ({
         : {}
     }
   >
-    <img
+    <ImageWithSkeleton
       src={card.img}
       alt={card.title}
       className="project-image"
-      loading="lazy"
-      decoding="async"
     />
+    <span className="project-number">{card.id}</span>
     <span className="project-number">{card.id}</span>
   </motion.div>
 );

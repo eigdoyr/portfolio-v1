@@ -4,7 +4,7 @@ export const licenseData: LicenseData = {
   profile: {
     name: "RYODGIE",
     title: "Digital and Visual Designer",
-    image: "/profile.jpg",
+    image: "/profile.png",
   },
   location: "Philippines GMT +8",
   idNumber: "08-231995",
