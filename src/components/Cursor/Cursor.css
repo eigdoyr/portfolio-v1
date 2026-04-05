@@ -1,0 +1,29 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--color-dark);
+  pointer-events: none;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  mix-blend-mode: difference;
+}
+
+.cursor-label {
+  font-size: 0.6rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.15em;
+  color: var(--color-bg);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Only show on devices that support hover — hides on touch */
+@media (hover: none) {
+  .cursor {
+    display: none;
+  }
+}
