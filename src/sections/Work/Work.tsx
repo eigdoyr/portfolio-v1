@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { projectsData } from "../../data/projects";
 import { useIsMobile } from "../../hooks/useIsMobile";
@@ -15,8 +15,6 @@ const Work = ({ isOpen }: WorkProps) => {
   const [cards, setCards] = useState<Project[]>(projectsData);
   const isMobile = useIsMobile();
   const navigate = useNavigate();
-
-  const handleClose = () => navigate("/");
 
   const handleCardClick = (e: React.MouseEvent, slug: string) => {
     e.stopPropagation();
@@ -37,11 +35,16 @@ const Work = ({ isOpen }: WorkProps) => {
   };
 
   return (
-    <div
-      className={`work-overlay ${isOpen ? "is-open" : ""}`}
-      onClick={handleClose}
+    <motion.div
+      className="work-overlay"
       aria-modal="true"
       aria-label="Work overlay"
+      animate={{
+        opacity: isOpen ? 1 : 0,
+        visibility: isOpen ? "visible" : "hidden",
+      }}
+      transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+      style={{ pointerEvents: "none" }}
     >
       <div className="work-stage">
         <AnimatePresence>
@@ -59,7 +62,7 @@ const Work = ({ isOpen }: WorkProps) => {
             ))}
         </AnimatePresence>
 
-        {isMobile && (
+        {isMobile && isOpen && (
           <div className="mobile-dots" aria-hidden="true">
             {projectsData.map((item) => (
               <div
@@ -70,7 +73,7 @@ const Work = ({ isOpen }: WorkProps) => {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

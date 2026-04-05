@@ -6,13 +6,13 @@
   justify-content: center;
   align-items: center;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.5s var(--ease-out-expo);
 }
 
 .work-overlay.is-open {
   opacity: 1;
-  pointer-events: auto;
+  pointer-events: none; /* ← changed from auto to none */
 }
 
 .work-stage {
@@ -22,6 +22,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none; /* ← stage itself not clickable */
 }
 
 .project-card {
@@ -31,6 +32,7 @@
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  pointer-events: auto; /* ← only cards are clickable */
 }
 
 .project-image {
@@ -62,6 +64,7 @@
   bottom: 10%;
   display: flex;
   gap: var(--space-xs);
+  pointer-events: none;
 }
 
 .dot {

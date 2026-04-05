@@ -30,23 +30,28 @@ const ProjectCard = ({
     style={{ zIndex: isMobile ? total - index : card.zIndex }}
     initial={{ opacity: 0, y: 100 }}
     exit={{ opacity: 0, y: 100 }}
-    animate={
-      isMobile
-        ? {
-            x: 0,
-            y: index * -8,
-            rotate: card.rotate,
-            scale: 1 - index * 0.05,
-            opacity: 1,
-          }
-        : {
-            x: card.x,
-            y: 0,
-            rotate: 0,
-            scale: card.scale,
-            opacity: 1,
-          }
-    }
+    animate={{
+      opacity: 1,
+      scale: isMobile ? 1 - index * 0.05 : card.scale,
+      x: isMobile ? 0 : card.x,
+      y: isMobile ? index * -8 : 0,
+      rotate: isMobile ? card.rotate : 0,
+      transition: {
+        duration: 0.9,
+        delay: index * 0.08,
+        ease: [0.2, 0.8, 0.2, 1],
+      },
+    }}
+    exit={{
+      opacity: 0,
+      scale: 0.95,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        delay: index * 0.04,
+        ease: [0.2, 0.8, 0.2, 1],
+      },
+    }}
     transition={{ type: "spring", stiffness: 260, damping: 28 }}
     whileHover={
       !isMobile

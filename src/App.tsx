@@ -41,6 +41,7 @@ const AppShell = () => {
         </Routes>
       </AnimatePresence>
 
+      {/* Always mounted — visibility controlled inside Work via AnimatePresence */}
       <Work isOpen={isProjects} />
     </>
   );

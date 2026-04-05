@@ -15,14 +15,14 @@
   color: var(--color-dark);
 
   opacity: 0;
-  transform: translateY(-40px);
-  animation: nav-slide-down 2.5s var(--ease-entrance) 1.2s forwards;
+  transform: translateY(-20px);
+  animation: nav-slide-down 1.4s var(--ease-entrance) 0.2s forwards;
 }
 
 @keyframes nav-slide-down {
   from {
     opacity: 0;
-    transform: translateY(-40px);
+    transform: translateY(-20px);
   }
   to {
     opacity: 1;
