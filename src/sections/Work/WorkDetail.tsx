@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useParams, Navigate, Link } from "react-router-dom";
 import { projectsData } from "../../data/projects";
 import PageTransition from "../../components/PageTransition/PageTransition";
@@ -29,8 +29,14 @@ const ProjectThumb = ({ project }: ProjectThumbProps) => (
 
 const WorkDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const project = projectsData.find((p) => p.slug === slug);
-  const otherProjects = projectsData.filter((p) => p.slug !== slug);
+  const project = useMemo(
+    () => projectsData.find((p) => p.slug === slug),
+    [slug],
+  );
+  const otherProjects = useMemo(
+    () => projectsData.filter((p) => p.slug !== slug),
+    [slug],
+  );
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -39,8 +45,8 @@ const WorkDetail = () => {
   if (!project) return <Navigate to="/" replace />;
 
   return (
-    <PageTransition>
-      <main className="case-study-main">
+    <PageTransition key={slug}>
+      <main className="case-study-main" id="main-content">
         <header className="cs-header">
           <h1 className="cs-title">{project.title}</h1>
           <div className="cs-meta">
