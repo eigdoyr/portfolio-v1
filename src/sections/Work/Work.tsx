@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { projectsData } from "../../data/projects";
-import { useIsTablet } from "../../hooks/useIsTablet";
 import { useIsMobile } from "../../hooks/useIsMobile";
+import { useIsTablet } from "../../hooks/useIsTablet";
+import { useFocusTrap } from "../../hooks/useFocusTrap";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
-import { AnimatePresence } from "framer-motion";
 import type { Project } from "../../types";
 import "./Work.css";
 
@@ -15,9 +15,11 @@ interface WorkProps {
 
 const Work = ({ isOpen }: WorkProps) => {
   const [cards, setCards] = useState<Project[]>(projectsData);
-  const isTablet = useIsTablet();
   const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
   const navigate = useNavigate();
+
+  useFocusTrap(isOpen, ".work-overlay");
 
   const handleCardClick = (e: React.MouseEvent, slug: string) => {
     e.stopPropagation();
@@ -43,6 +45,7 @@ const Work = ({ isOpen }: WorkProps) => {
       role="dialog"
       aria-modal="true"
       aria-label="Work — selected projects"
+      tabIndex={-1}
       animate={{
         opacity: isOpen ? 1 : 0,
         visibility: isOpen ? "visible" : "hidden",
@@ -59,8 +62,8 @@ const Work = ({ isOpen }: WorkProps) => {
                 card={card}
                 index={index}
                 total={cards.length}
-                isTablet={isTablet}
                 isMobile={isMobile}
+                isTablet={isTablet}
                 onClick={handleCardClick}
                 onDragEnd={handleDragEnd}
               />

@@ -34,6 +34,15 @@ const ProjectCard = ({
     <motion.div
       className="project-card"
       onClick={(e) => onClick(e, card.slug)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick(e as unknown as React.MouseEvent, card.slug);
+        }
+      }}
+      tabIndex={0}
+      role="button"
+      aria-label={`View ${card.title}`}
       drag={isMobile && index === 0 ? "x" : false}
       dragConstraints={{ left: 0, right: 0 }}
       onDragEnd={onDragEnd}
@@ -62,6 +71,19 @@ const ProjectCard = ({
         },
       }}
       whileHover={
+        !isMobile
+          ? {
+              y: -25,
+              scale: card.scale + 0.05,
+              zIndex: 999,
+              transition: {
+                zIndex: { duration: 0 },
+                y: { duration: 0.4, ease: "easeOut" },
+              },
+            }
+          : {}
+      }
+      whileFocus={
         !isMobile
           ? {
               y: -25,
