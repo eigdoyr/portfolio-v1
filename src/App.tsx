@@ -12,6 +12,7 @@ import Hero from "./sections/Hero/Hero";
 import Work from "./sections/Work/Work";
 import WorkDetail from "./sections/Work/WorkDetail";
 import About from "./sections/About/About";
+import Footer from "./components/Footer/Footer";
 import { useRouteState } from "./hooks/useRouteState";
 import { useBodyScrollLock } from "./hooks/useBodyScrollLock";
 import { useLenis } from "./hooks/useLenis";
@@ -51,8 +52,8 @@ const AppShell = () => {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AnimatePresence>
-
       <Work isOpen={isProjects} />
+      <Footer />
     </>
   );
 };
