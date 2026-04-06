@@ -34,11 +34,11 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   pointer-events: auto; /* ← only cards are clickable */
 }
-
+/* 
 .project-card:focus {
   outline: 2px solid var(--color-dark);
   outline-offset: 4px;
-}
+} */
 
 .project-image {
   width: 100%;
