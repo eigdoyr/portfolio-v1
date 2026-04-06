@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { projectsData } from "../../data/projects";
+import { useIsTablet } from "../../hooks/useIsTablet";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { AnimatePresence } from "framer-motion";
@@ -14,6 +15,7 @@ interface WorkProps {
 
 const Work = ({ isOpen }: WorkProps) => {
   const [cards, setCards] = useState<Project[]>(projectsData);
+  const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const navigate = useNavigate();
 
@@ -57,6 +59,7 @@ const Work = ({ isOpen }: WorkProps) => {
                 card={card}
                 index={index}
                 total={cards.length}
+                isTablet={isTablet}
                 isMobile={isMobile}
                 onClick={handleCardClick}
                 onDragEnd={handleDragEnd}

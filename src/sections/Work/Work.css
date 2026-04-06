@@ -88,3 +88,18 @@
     max-width: 300px;
   }
 }
+
+/* ── Tablet 1024px ────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .project-card {
+    width: 320px;
+  }
+}
+
+/* ── Small tablet / large mobile 768px ───────────────────── */
+@media (max-width: 768px) {
+  .project-card {
+    width: 75vw;
+    max-width: 300px;
+  }
+}

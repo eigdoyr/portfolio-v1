@@ -35,6 +35,7 @@ export interface Project {
   description: string;
   // Desktop layout
   x: number;
+  xTablet?: number;
   zIndex: number;
   scale: number;
   // Mobile layout
