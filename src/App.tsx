@@ -16,7 +16,6 @@ import Footer from "./components/Footer/Footer";
 import { useRouteState } from "./hooks/useRouteState";
 import { useBodyScrollLock } from "./hooks/useBodyScrollLock";
 import { useLenis } from "./hooks/useLenis";
-import { Helmet } from "react-helmet-async";
 
 const AppShell = () => {
   const { isHome, isProjects, isWorkDetail, isAbout } = useRouteState();
@@ -27,27 +26,14 @@ const AppShell = () => {
 
   return (
     <>
-      {/* Skip to content — keyboard accessibility */}
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
 
-      <Helmet>
-        <title>
-          {isWorkDetail
-            ? "Work — Ryodgie"
-            : isProjects
-              ? "Work — Ryodgie"
-              : "Ryodgie — Digital & Visual Designer"}
-        </title>
-      </Helmet>
-
-      {/* Cursor — CSS hides on touch via @media (hover: none) */}
-      <Cursor />
+      <Cursor isProjects={isProjects} />
 
       <Navbar />
 
-      {/* Visually hidden h1 for screen readers on home page */}
       {isHome && (
         <h1 className="sr-only">Ryodgie — Digital and Visual Designer</h1>
       )}
@@ -63,6 +49,7 @@ const AppShell = () => {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AnimatePresence>
+
       <Work isOpen={isProjects} />
       <Footer />
     </>

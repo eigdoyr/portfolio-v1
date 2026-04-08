@@ -5,7 +5,6 @@ import PageTransition from "../../components/PageTransition/PageTransition";
 import type { Project } from "../../types";
 import ImageWithSkeleton from "../../components/ImageWithSkeleton/ImageWithSkeleton";
 import "./WorkDetail.css";
-import { Helmet } from "react-helmet-async";
 
 interface ProjectThumbProps {
   project: Project;
@@ -56,9 +55,6 @@ const WorkDetail = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{project.title} — Ryodgie</title>
-      </Helmet>
       <PageTransition key={slug}>
         <main className="case-study-main" id="main-content">
           <header className="cs-header">

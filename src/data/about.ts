@@ -47,7 +47,7 @@ export const SECTIONS: Section[] = [
       ". And nearly a decade supporting customers at the ",
       { bold: "Los Angeles Times" },
       " and ",
-      { bold: "Tribune Publishing" },
+      { bold: "Tribune Publishing." },
     ],
   },
   {

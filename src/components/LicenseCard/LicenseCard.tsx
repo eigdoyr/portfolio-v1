@@ -1,3 +1,4 @@
+import { memo } from "react";
 import type { LicenseData } from "../../types";
 import DetailItem from "../DetailItem/DetailItem";
 
@@ -5,7 +6,7 @@ interface LicenseCardProps {
   data: LicenseData;
 }
 
-const LicenseCard = ({ data }: LicenseCardProps) => (
+const LicenseCard = memo(({ data }: LicenseCardProps) => (
   <div className="card-wrapper">
     <div className="lanyard-system">
       <div className="lanyard-string" />
@@ -55,6 +56,8 @@ const LicenseCard = ({ data }: LicenseCardProps) => (
       />
     </div>
   </div>
-);
+));
+
+LicenseCard.displayName = "LicenseCard";
 
 export default LicenseCard;

@@ -42,9 +42,18 @@ const Work = ({ isOpen }: WorkProps) => {
       setPositions(getXPositions(count, cardWidth, gap));
     };
 
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(calculate, 150);
+    };
+
     calculate();
-    window.addEventListener("resize", calculate);
-    return () => window.removeEventListener("resize", calculate);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(resizeTimer);
+    };
   }, []);
 
   const handleCardClick = (e: React.MouseEvent, slug: string) => {

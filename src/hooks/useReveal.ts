@@ -1,11 +1,13 @@
 import { useEffect, useRef } from "react";
 
 export const useReveal = (delay = 500) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    let observer: IntersectionObserver;
+
     const timer = setTimeout(() => {
-      const observer = new IntersectionObserver(
+      observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -19,11 +21,12 @@ export const useReveal = (delay = 500) => {
 
       const elements = ref.current?.querySelectorAll(".reveal");
       elements?.forEach((el) => observer.observe(el));
-
-      return () => observer.disconnect();
     }, delay);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      observer?.disconnect();
+    };
   }, [delay]);
 
   return ref;

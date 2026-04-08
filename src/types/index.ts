@@ -29,15 +29,11 @@ export interface Project {
   slug: string;
   title: string;
   img: string;
-  blurHash?: string;
   tags: string[];
   year: string;
   description: string;
-  // Desktop layout
-
   zIndex: number;
   scale: number;
-  // Mobile layout
   rotate: number;
 }
 

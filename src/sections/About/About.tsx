@@ -10,10 +10,6 @@ const About = () => {
 
   useEffect(() => {
     document.title = "About — Ryodgie";
-    return () => {
-      document.title =
-        "Ryodgie — Visual & Web Designer and Front-end Developer";
-    };
   }, []);
 
   return (
