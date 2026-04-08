@@ -1,34 +1,57 @@
-# Ryodgie Barnatia - Portfolio V1 ✨
+# Portfolio V1 — Ryodgie Barnatia
 
-Personal portfolio website — Digital & Visual Designer | Front-end Developer.
+Personal portfolio website — Visual & Web Designer and Front-end Developer.
 
-## Stack 🧩
+---
 
-- React + TypeScript
+## Stack
+
+- React 18 + TypeScript
 - Vite
 - Framer Motion
-- Lenis
+- Lenis (smooth scroll)
 - Vanilla CSS
 - React Router DOM
+- React Helmet Async
+
+---
 
 ## Structure
 
     src/
-    ├── components/       # Reusable UI pieces
+    ├── components/         # Reusable UI pieces
     │   ├── Cursor/
     │   ├── DetailItem/
+    │   ├── Footer/
+    │   ├── ImageWithSkeleton/
     │   ├── LicenseCard/
     │   ├── Navbar/
     │   ├── PageTransition/
-    │   └── ProjectCard/
-    ├── sections/         # Full-page layout units
+    │   ├── ProjectCard/
+    │   └── ProjectThumb/
+    ├── sections/           # Full-page layout units
     │   ├── Hero/
     │   ├── Work/
     │   └── About/
-    ├── hooks/            # Custom React hooks
-    ├── data/             # All content lives here
-    ├── styles/           # Design tokens + global resets
-    └── types/            # Shared TypeScript interfaces
+    ├── hooks/              # Custom React hooks
+    │   ├── useBodyScrollLock
+    │   ├── useFocusTrap
+    │   ├── useIsMobile
+    │   ├── useLenis
+    │   ├── useMousePosition
+    │   ├── useReveal
+    │   └── useRouteState
+    ├── data/               # All content lives here
+    │   ├── profile.ts
+    │   ├── projects.ts
+    │   └── about.ts
+    ├── styles/             # Design tokens + global resets
+    │   ├── variables.css
+    │   └── global.css
+    ├── types/              # Shared TypeScript interfaces
+    └── utils/              # Pure utility functions
+
+---
 
 ## Getting Started
 
@@ -38,22 +61,36 @@ Personal portfolio website — Digital & Visual Designer | Front-end Developer.
 ## Build
 
     npm run build
+    npm run preview
 
-## Features ☕️
+---
 
-- ID card with lanyard drop and swing animation
-- Work overlay with spread cards and hover lift
+## Features
+
+- ID card hero with lanyard drop and swing animation
+- Work overlay with dynamic card spread and hover lift
 - Mobile card stack with drag to swipe
-- Custom cursor that expands to VIEW on card hover
-- Lenis smooth scroll on case study pages
+- Custom cursor that expands to VIEW on project card hover
+- Lenis smooth scroll on case study and about pages
 - Framer Motion page transitions
 - Fluid typography via CSS clamp()
-- About page placeholder
+- Scroll reveal animations on About page
+- Focus trap on Work overlay
+- Keyboard navigation support on project cards
+- Per-page document titles
+- Open Graph and Twitter card meta tags
+- CSP header
+- Brotli + gzip compression on build
+- Fully responsive — mobile, tablet, desktop
 
-## Roadmap ✅
+---
 
-- [ ] Add real project images and content
-- [ ] Build out About page
+## Roadmap
+
+- [ ] Add real project images and case study content
+- [ ] Build out WorkDetail gallery sections
+- [ ] Add og:image
+- [ ] Add sitemap.xml and robots.txt
 - [ ] Deploy to Vercel
 
 ---
