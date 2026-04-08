@@ -48,4 +48,5 @@ export interface RouteState {
   isHome: boolean;
   isProjects: boolean;
   isWorkDetail: boolean;
+  isAbout: boolean;
 }

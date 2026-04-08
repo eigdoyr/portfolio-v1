@@ -19,11 +19,11 @@ import { useLenis } from "./hooks/useLenis";
 import { Helmet } from "react-helmet-async";
 
 const AppShell = () => {
-  const { isHome, isProjects, isWorkDetail } = useRouteState();
+  const { isHome, isProjects, isWorkDetail, isAbout } = useRouteState();
   const location = useLocation();
 
-  useBodyScrollLock(!isWorkDetail);
-  useLenis(isWorkDetail);
+  useBodyScrollLock(!isWorkDetail && !isAbout);
+  useLenis(isWorkDetail || isAbout);
 
   return (
     <>
@@ -52,7 +52,7 @@ const AppShell = () => {
         <h1 className="sr-only">Ryodgie — Digital and Visual Designer</h1>
       )}
 
-      <Hero showCard={isHome} showBgText={!isWorkDetail} />
+      <Hero showCard={isHome} showBgText={!isWorkDetail && !isAbout} />
 
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>

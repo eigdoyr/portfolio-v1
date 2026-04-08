@@ -7,5 +7,6 @@ export const useRouteState = (): RouteState => {
     isHome: pathname === "/",
     isProjects: pathname === "/projects",
     isWorkDetail: pathname.startsWith("/work/"),
+    isAbout: pathname === "/about",
   };
 };
