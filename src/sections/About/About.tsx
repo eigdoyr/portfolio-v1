@@ -13,7 +13,7 @@ const About = () => {
   }, []);
 
   return (
-    <PageTransition>
+    <PageTransition disableY>
       <main className="about-main" id="main-content" ref={ref}>
         {/* ── Sections ───────────────────────────────────── */}
         <div className="about-sections">

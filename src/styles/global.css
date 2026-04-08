@@ -6,6 +6,11 @@
   padding: 0;
 }
 
+html {
+  /* overflow-y: scroll;  always reserve scrollbar space */
+  scrollbar-gutter: stable; /* reserves scrollbar space without forcing scroll */
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-dark);

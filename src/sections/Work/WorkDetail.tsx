@@ -1,31 +1,12 @@
 import { useEffect, useMemo } from "react";
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { projectsData } from "../../data/projects";
+import ProjectThumb from "../../components/ProjectThumb/ProjectThumb";
 import PageTransition from "../../components/PageTransition/PageTransition";
-import type { Project } from "../../types";
 import ImageWithSkeleton from "../../components/ImageWithSkeleton/ImageWithSkeleton";
+import type { Project } from "../../types";
+
 import "./WorkDetail.css";
-
-interface ProjectThumbProps {
-  project: Project;
-}
-
-const ProjectThumb = ({ project }: ProjectThumbProps) => (
-  <Link to={`/work/${project.slug}`} className="more-card">
-    <div className="more-img-wrapper">
-      <img
-        src={project.img}
-        alt={project.title}
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
-    <div className="more-info">
-      <span>{project.id}</span>
-      <span>{project.title}</span>
-    </div>
-  </Link>
-);
 
 const WorkDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -34,6 +15,7 @@ const WorkDetail = () => {
     () => projectsData.find((p: Project) => p.slug === slug),
     [slug],
   );
+
   const otherProjects = useMemo(
     () => projectsData.filter((p: Project) => p.slug !== slug),
     [slug],

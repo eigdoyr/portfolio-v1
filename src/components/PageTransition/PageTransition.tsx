@@ -3,11 +3,15 @@ import type { ReactNode } from "react";
 
 interface PageTransitionProps {
   children: ReactNode;
+  disableY?: boolean;
 }
 
-const PageTransition = ({ children }: PageTransitionProps) => (
+const PageTransition = ({
+  children,
+  disableY = false,
+}: PageTransitionProps) => (
   <motion.div
-    initial={{ opacity: 0, y: 40, scale: 0.98 }}
+    initial={{ opacity: 0, y: disableY ? 0 : 40, scale: 0.98 }}
     animate={{
       opacity: 1,
       y: 0,
@@ -19,7 +23,7 @@ const PageTransition = ({ children }: PageTransitionProps) => (
     }}
     exit={{
       opacity: 0,
-      y: -20,
+      y: disableY ? 0 : -20,
       scale: 0.98,
       transition: {
         duration: 0.4,
