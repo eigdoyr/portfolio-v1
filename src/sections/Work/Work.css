@@ -10,9 +10,9 @@
   pointer-events: none;
 }
 
-.work-overlay.is-open {
-  opacity: 1;
-  pointer-events: none; /* ← changed from auto to none */
+/* Only enable pointer events when open */
+.work-overlay[aria-modal="true"] {
+  pointer-events: none;
 }
 
 .work-stage {
@@ -22,23 +22,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: none; /* ← stage itself not clickable */
+  pointer-events: none;
 }
 
 .project-card {
   position: absolute;
-  width: 440px;
+  width: 18vw;
   aspect-ratio: 4 / 5;
+  max-height: 72vh;
+  max-width: calc(72vh * 0.8);
+  min-width: 140px;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  pointer-events: auto; /* ← only cards are clickable */
+  pointer-events: auto;
 }
-/* 
-.project-card:focus {
-  outline: 2px solid var(--color-dark);
-  outline-offset: 4px;
-} */
 
 .project-image {
   width: 100%;
@@ -50,7 +48,12 @@
 }
 
 .project-card:hover .project-image {
-  transform: scale(1.05);
+  transform: scale(1.25);
+}
+
+.project-card:focus {
+  outline: 2px solid var(--color-dark);
+  outline-offset: 4px;
 }
 
 .project-number {
@@ -87,24 +90,19 @@
   transform: scale(2);
 }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+  .project-card {
+    width: 17vw;
+    max-height: 60vh;
+    max-width: calc(60vh * 0.8);
+  }
+}
+
 @media (max-width: 768px) {
   .project-card {
     width: 75vw;
     max-width: 300px;
-  }
-}
-
-/* ── Tablet 1024px ────────────────────────────────────────── */
-@media (max-width: 1024px) {
-  .project-card {
-    width: 320px;
-  }
-}
-
-/* ── Small tablet / large mobile 768px ───────────────────── */
-@media (max-width: 768px) {
-  .project-card {
-    width: 75vw;
-    max-width: 300px;
+    max-height: none;
+    aspect-ratio: 4 / 5;
   }
 }

@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { projectsData } from "../../data/projects";
 import { useIsMobile } from "../../hooks/useIsMobile";
-import { useIsTablet } from "../../hooks/useIsTablet";
 import { useFocusTrap } from "../../hooks/useFocusTrap";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import type { Project } from "../../types";
@@ -13,13 +12,40 @@ interface WorkProps {
   isOpen: boolean;
 }
 
+const getXPositions = (count: number, cardWidth: number, gap: number) => {
+  const total = count * cardWidth + (count - 1) * gap;
+  const start = -total / 2 + cardWidth / 2;
+  return Array.from({ length: count }, (_, i) => start + i * (cardWidth + gap));
+};
+
 const Work = ({ isOpen }: WorkProps) => {
   const [cards, setCards] = useState<Project[]>(projectsData);
+  const [positions, setPositions] = useState<number[]>([]);
   const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
   const navigate = useNavigate();
 
   useFocusTrap(isOpen, ".work-overlay");
+
+  useEffect(() => {
+    const calculate = () => {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+
+      if (vw <= 768) {
+        setPositions(projectsData.map(() => 0));
+        return;
+      }
+
+      const cardWidth = Math.min(vw * 0.15, vh * 0.72 * 0.8);
+      const gap = cardWidth * 0.06;
+      const count = projectsData.length;
+      setPositions(getXPositions(count, cardWidth, gap));
+    };
+
+    calculate();
+    window.addEventListener("resize", calculate);
+    return () => window.removeEventListener("resize", calculate);
+  }, []);
 
   const handleCardClick = (e: React.MouseEvent, slug: string) => {
     e.stopPropagation();
@@ -51,7 +77,6 @@ const Work = ({ isOpen }: WorkProps) => {
         visibility: isOpen ? "visible" : "hidden",
       }}
       transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-      style={{ pointerEvents: "none" }}
     >
       <div className="work-stage">
         <AnimatePresence>
@@ -63,7 +88,7 @@ const Work = ({ isOpen }: WorkProps) => {
                 index={index}
                 total={cards.length}
                 isMobile={isMobile}
-                isTablet={isTablet}
+                xPos={positions[index] ?? 0}
                 onClick={handleCardClick}
                 onDragEnd={handleDragEnd}
               />
