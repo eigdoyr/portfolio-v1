@@ -21,8 +21,20 @@ const getXPositions = (count: number, cardWidth: number, gap: number) => {
 const Work = ({ isOpen }: WorkProps) => {
   const [cards, setCards] = useState<Project[]>(projectsData);
   const [positions, setPositions] = useState<number[]>([]);
+  const [showCards, setShowCards] = useState(false);
   const isMobile = useIsMobile();
   const navigate = useNavigate();
+
+  // Delay cards appearing after label shows
+  useEffect(() => {
+    if (isOpen) {
+      const timer = setTimeout(() => setShowCards(true), 1000);
+      return () => clearTimeout(timer);
+    } else {
+      const timer = setTimeout(() => setShowCards(false), 0);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
 
   useFocusTrap(isOpen, ".work-overlay");
 
@@ -89,7 +101,23 @@ const Work = ({ isOpen }: WorkProps) => {
     >
       <div className="work-stage">
         <AnimatePresence>
-          {isOpen &&
+          {isOpen && (
+            <motion.div
+              className="work-label"
+              aria-hidden="true"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span>Featured</span>
+              <span>Projects</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {showCards &&
             cards.map((card, index) => (
               <ProjectCard
                 key={card.id}
@@ -104,7 +132,7 @@ const Work = ({ isOpen }: WorkProps) => {
             ))}
         </AnimatePresence>
 
-        {isMobile && isOpen && (
+        {isMobile && showCards && (
           <div className="mobile-dots" aria-hidden="true">
             {projectsData.map((item) => (
               <div

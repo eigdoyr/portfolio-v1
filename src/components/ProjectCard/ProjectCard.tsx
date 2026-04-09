@@ -48,8 +48,8 @@ const ProjectCard = ({
       y: isMobile ? index * -8 : 0,
       rotate: isMobile ? card.rotate : 0,
       transition: {
-        duration: 0.9,
-        delay: index * 0.08,
+        duration: 1.5,
+        delay: index * 0.12,
         ease: [0.2, 0.8, 0.2, 1],
       },
     }}

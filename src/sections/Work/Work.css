@@ -25,6 +25,27 @@
   pointer-events: none;
 }
 
+/* ── Featured Projects label ──────────────────────────────── */
+.work-label {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.work-label span {
+  font-size: clamp(3.5rem, 12vw, 11rem);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  color: var(--color-text-bg-massive);
+}
+
 .project-card {
   position: absolute;
   width: 18vw;
