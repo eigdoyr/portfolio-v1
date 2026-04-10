@@ -25,6 +25,7 @@ const LicenseCard = memo(({ data }: LicenseCardProps) => (
           src={data.profile.image}
           alt={data.profile.name}
           className="profile-image"
+          fetchPriority="high"
         />
         <div className="profile-text">
           <h2>{data.profile.name}</h2>

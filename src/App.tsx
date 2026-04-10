@@ -35,27 +35,24 @@ const AppShell = () => {
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
-
       <Cursor isProjects={isProjects} />
       <Navbar />
-
       {isHome && (
         <h1 className="sr-only">Ryodgie — Web Developer & Visual Designer</h1>
       )}
-
-      <Hero showCard={isHome} showBgText={!isWorkDetail && !isAbout} />
-
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={null} />
-          <Route path="/projects" element={null} />
-          <Route path="/about" element={<About />} />
-          <Route path="/work/:slug" element={<WorkDetail />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </AnimatePresence>
-
-      <Work isOpen={isProjects} />
+      <main id="main-content">
+        <Hero showCard={isHome} showBgText={!isWorkDetail && !isAbout} />
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={null} />
+            <Route path="/projects" element={null} />
+            <Route path="/about" element={<About />} />
+            <Route path="/work/:slug" element={<WorkDetail />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </AnimatePresence>
+        <Work isOpen={isProjects} />
+      </main>
       <Footer />
     </>
   );
