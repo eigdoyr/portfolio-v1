@@ -1,5 +1,5 @@
-import LicenseCard from "../../components/LicenseCard/LicenseCard";
-import { licenseData } from "../../data/profile";
+import LicenseCard from "@components/LicenseCard/LicenseCard";
+import { licenseData } from "@data/profile";
 import "./Hero.css";
 
 interface HeroProps {

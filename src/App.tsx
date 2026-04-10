@@ -7,16 +7,16 @@ import {
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import Navbar from "./components/Navbar/Navbar";
-import Cursor from "./components/Cursor/Cursor";
-import Hero from "./sections/Hero/Hero";
-import Work from "./sections/Work/Work";
-import WorkDetail from "./sections/Work/WorkDetail";
-import About from "./sections/About/About";
-import Footer from "./components/Footer/Footer";
-import { useRouteState } from "./hooks/useRouteState";
-import { useBodyScrollLock } from "./hooks/useBodyScrollLock";
-import { useLenis } from "./hooks/useLenis";
+import Navbar from "@components/Navbar/Navbar";
+import Cursor from "@components/Cursor/Cursor";
+import Hero from "@sections/Hero/Hero";
+import Work from "@sections/Work/Work";
+import WorkDetail from "@sections/Work/WorkDetail";
+import About from "@sections/About/About";
+import Footer from "@components/Footer/Footer";
+import { useRouteState } from "@hooks/useRouteState";
+import { useBodyScrollLock } from "@hooks/useBodyScrollLock";
+import { useLenis } from "@hooks/useLenis";
 
 const AppShell = () => {
   const { isHome, isProjects, isWorkDetail, isAbout } = useRouteState();

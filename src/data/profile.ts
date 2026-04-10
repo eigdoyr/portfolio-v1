@@ -1,4 +1,4 @@
-import type { LicenseData } from "../types";
+import type { LicenseData } from "@/types";
 
 export const licenseData: LicenseData = {
   profile: {

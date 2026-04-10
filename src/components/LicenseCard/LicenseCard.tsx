@@ -1,6 +1,6 @@
 import { memo } from "react";
-import type { LicenseData } from "../../types";
-import DetailItem from "../DetailItem/DetailItem";
+import type { LicenseData } from "@/types";
+import DetailItem from "@components/DetailItem/DetailItem";
 
 interface LicenseCardProps {
   data: LicenseData;

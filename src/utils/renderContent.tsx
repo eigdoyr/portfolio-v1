@@ -1,4 +1,4 @@
-import type { ContentPart } from "../data/about";
+import type { ContentPart } from "@data/about";
 
 /**
  * Renders an array of ContentPart into JSX —

@@ -2,17 +2,17 @@ import { Helmet } from "react-helmet-async";
 import { useEffect, useMemo } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { projectsData } from "../../data/projects";
-import ProjectThumb from "../../components/ProjectThumb/ProjectThumb";
-import PageTransition from "../../components/PageTransition/PageTransition";
-import ImageWithSkeleton from "../../components/ImageWithSkeleton/ImageWithSkeleton";
+import { projectsData } from "@data/projects";
+import ProjectThumb from "@components/ProjectThumb/ProjectThumb";
+import PageTransition from "@components/PageTransition/PageTransition";
+import ImageWithSkeleton from "@components/ImageWithSkeleton/ImageWithSkeleton";
 import {
   headlineVariants,
   headlineItem,
   fadeUp,
   staggerContainer,
   fadeUpItem,
-} from "../../utils/animations";
+} from "@utils/animations";
 import "./WorkDetail.css";
 
 const WorkDetail = () => {

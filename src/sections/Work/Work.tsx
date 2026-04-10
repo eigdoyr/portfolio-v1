@@ -1,22 +1,17 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { projectsData } from "../../data/projects";
-import { useIsMobile } from "../../hooks/useIsMobile";
-import { useFocusTrap } from "../../hooks/useFocusTrap";
-import ProjectCard from "../../components/ProjectCard/ProjectCard";
-import type { Project } from "../../types";
+import { projectsData } from "@data/projects";
+import { useIsMobile } from "@hooks/useIsMobile";
+import { useFocusTrap } from "@hooks/useFocusTrap";
+import ProjectCard from "@components/ProjectCard/ProjectCard";
+import type { Project } from "@/types";
+import { getXPositions } from "@utils/positions";
 import "./Work.css";
 
 interface WorkProps {
   isOpen: boolean;
 }
-
-const getXPositions = (count: number, cardWidth: number, gap: number) => {
-  const total = count * cardWidth + (count - 1) * gap;
-  const start = -total / 2 + cardWidth / 2;
-  return Array.from({ length: count }, (_, i) => start + i * (cardWidth + gap));
-};
 
 const Work = ({ isOpen }: WorkProps) => {
   const [cards, setCards] = useState<Project[]>(projectsData);

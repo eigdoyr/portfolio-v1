@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import type { Project } from "../../types";
-import ImageWithSkeleton from "../ImageWithSkeleton/ImageWithSkeleton";
+import type { Project } from "@/types";
+import ImageWithSkeleton from "@components/ImageWithSkeleton/ImageWithSkeleton";
 
 interface ProjectCardProps {
   card: Project;

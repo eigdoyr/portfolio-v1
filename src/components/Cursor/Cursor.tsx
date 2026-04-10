@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useMousePosition } from "../../hooks/useMousePosition";
+import { useMousePosition } from "@hooks/useMousePosition";
 import "./Cursor.css";
 
 interface CursorProps {

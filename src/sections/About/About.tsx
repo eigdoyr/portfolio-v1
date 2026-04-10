@@ -1,8 +1,8 @@
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import PageTransition from "../../components/PageTransition/PageTransition";
-import { SECTIONS, EXPERIENCE } from "../../data/about";
-import { renderContent } from "../../utils/renderContent";
+import { Helmet } from "react-helmet-async";
+import PageTransition from "@components/PageTransition/PageTransition";
+import { SECTIONS, EXPERIENCE } from "@data/about";
+import { renderContent } from "@utils/renderContent";
 import {
   headlineVariants,
   headlineItem,
@@ -10,7 +10,7 @@ import {
   drawRule,
   staggerContainer,
   fadeUpItem,
-} from "../../utils/animations";
+} from "@utils/animations";
 import "./About.css";
 
 const COL_ONE = SECTIONS.find((s) => s.index === "01")!;

@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import type { RouteState } from "../types";
+import type { RouteState } from "@/types";
 
 export const useRouteState = (): RouteState => {
   const { pathname } = useLocation();
