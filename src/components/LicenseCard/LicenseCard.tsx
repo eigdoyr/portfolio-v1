@@ -23,7 +23,7 @@ const LicenseCard = memo(({ data }: LicenseCardProps) => (
       <div className="profile-section">
         <img
           src={data.profile.image}
-          alt={`${data.profile.name} profile photo`}
+          alt={data.profile.name}
           className="profile-image"
         />
         <div className="profile-text">
