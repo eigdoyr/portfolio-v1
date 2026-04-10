@@ -6,6 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import Navbar from "./components/Navbar/Navbar";
 import Cursor from "./components/Cursor/Cursor";
 import Hero from "./sections/Hero/Hero";
@@ -26,16 +27,20 @@ const AppShell = () => {
 
   return (
     <>
+      {/* Default title — overridden by each page's Helmet */}
+      <Helmet>
+        <title>Ryodgie — Web Developer & Visual Designer</title>
+      </Helmet>
+
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
 
       <Cursor isProjects={isProjects} />
-
       <Navbar />
 
       {isHome && (
-        <h1 className="sr-only">Ryodgie — Digital and Visual Designer</h1>
+        <h1 className="sr-only">Ryodgie — Web Developer & Visual Designer</h1>
       )}
 
       <Hero showCard={isHome} showBgText={!isWorkDetail && !isAbout} />

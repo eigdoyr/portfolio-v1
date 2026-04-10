@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import PageTransition from "../../components/PageTransition/PageTransition";
 import { SECTIONS, EXPERIENCE } from "../../data/about";
@@ -18,12 +18,11 @@ const COL_TWO = SECTIONS.find((s) => s.index === "02")!;
 const COL_OFFLINE = SECTIONS.find((s) => s.index === "04")!;
 
 const About = () => {
-  useEffect(() => {
-    document.title = "About — Ryodgie";
-  }, []);
-
   return (
     <PageTransition disableY>
+      <Helmet>
+        <title>About — Ryodgie</title>
+      </Helmet>
       <main className="about-main" id="main-content">
         <h2 className="about-bg-text" aria-hidden="true">
           Ryodgie

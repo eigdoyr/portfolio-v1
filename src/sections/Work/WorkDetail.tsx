@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useEffect, useMemo } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { projectsData } from "../../data/projects";
@@ -5,7 +6,6 @@ import ProjectThumb from "../../components/ProjectThumb/ProjectThumb";
 import PageTransition from "../../components/PageTransition/PageTransition";
 import ImageWithSkeleton from "../../components/ImageWithSkeleton/ImageWithSkeleton";
 import type { Project } from "../../types";
-
 import "./WorkDetail.css";
 
 const WorkDetail = () => {
@@ -15,7 +15,6 @@ const WorkDetail = () => {
     () => projectsData.find((p: Project) => p.slug === slug),
     [slug],
   );
-
   const otherProjects = useMemo(
     () => projectsData.filter((p: Project) => p.slug !== slug),
     [slug],
@@ -26,17 +25,18 @@ const WorkDetail = () => {
   }, [slug]);
 
   useEffect(() => {
-    if (!project) return;
-    document.title = `${project.title} — Ryodgie`;
-    return () => {
-      document.title = "Ryodgie — Digital & Visual Designer";
-    };
+    if (project) {
+      document.title = `${project.title} — Ryodgie`;
+    }
   }, [slug, project]);
 
   if (!project) return <Navigate to="/" replace />;
 
   return (
     <>
+      <Helmet>
+        <title>{project.title} — Ryodgie</title>
+      </Helmet>
       <PageTransition key={slug}>
         <main className="case-study-main" id="main-content">
           <header className="cs-header">
