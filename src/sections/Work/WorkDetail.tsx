@@ -1,22 +1,30 @@
 import { Helmet } from "react-helmet-async";
 import { useEffect, useMemo } from "react";
 import { useParams, Navigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { projectsData } from "../../data/projects";
 import ProjectThumb from "../../components/ProjectThumb/ProjectThumb";
 import PageTransition from "../../components/PageTransition/PageTransition";
 import ImageWithSkeleton from "../../components/ImageWithSkeleton/ImageWithSkeleton";
-import type { Project } from "../../types";
+import {
+  headlineVariants,
+  headlineItem,
+  fadeUp,
+  staggerContainer,
+  fadeUpItem,
+} from "../../utils/animations";
 import "./WorkDetail.css";
 
 const WorkDetail = () => {
   const { slug } = useParams<{ slug: string }>();
 
   const project = useMemo(
-    () => projectsData.find((p: Project) => p.slug === slug),
+    () => projectsData.find((p) => p.slug === slug),
     [slug],
   );
+
   const otherProjects = useMemo(
-    () => projectsData.filter((p: Project) => p.slug !== slug),
+    () => projectsData.filter((p) => p.slug !== slug),
     [slug],
   );
 
@@ -37,45 +45,79 @@ const WorkDetail = () => {
       <Helmet>
         <title>{project.title} — Ryodgie</title>
       </Helmet>
+
       <PageTransition key={slug}>
         <main className="case-study-main" id="main-content">
-          <header className="cs-header">
-            <h1 className="cs-title">{project.title}</h1>
-            <div className="cs-meta">
+          {/* ── Header ──────────────────────────────────── */}
+          <motion.header
+            className="cs-header"
+            variants={headlineVariants}
+            initial="hidden"
+            animate="show"
+          >
+            <motion.h1 className="cs-title" variants={headlineItem}>
+              {project.title}
+            </motion.h1>
+            <motion.div className="cs-meta" variants={headlineItem}>
               {project.tags.map((tag) => (
                 <span key={tag}>{tag}</span>
               ))}
               <span>{project.year}</span>
-            </div>
-          </header>
+            </motion.div>
+          </motion.header>
 
-          <section className="cs-hero-image">
+          {/* ── Hero image ──────────────────────────────── */}
+          <motion.section
+            className="cs-hero-image"
+            variants={fadeUp(0.3)}
+            initial="hidden"
+            animate="show"
+          >
             <ImageWithSkeleton
               src={project.img}
               alt={project.title}
               loading="eager"
             />
-          </section>
+          </motion.section>
 
-          <section className="cs-content">
+          {/* ── Content ─────────────────────────────────── */}
+          <motion.section
+            className="cs-content"
+            variants={fadeUp(0.5)}
+            initial="hidden"
+            animate="show"
+          >
             <div className="cs-grid">
               <div className="cs-col-left">
                 <h2>The Challenge</h2>
               </div>
               <div className="cs-col-right">
-                <p>{project.description}</p>
+                <p>{project.challenge ?? project.description}</p>
               </div>
             </div>
-          </section>
+          </motion.section>
 
-          <section className="cs-more-work">
-            <h3 className="more-work-heading">Selected Works</h3>
-            <div className="more-work-grid">
+          {/* ── More work ───────────────────────────────── */}
+          <motion.section
+            className="cs-more-work"
+            variants={staggerContainer(0.6)}
+            initial="hidden"
+            animate="show"
+          >
+            <motion.h3 className="more-work-heading" variants={fadeUpItem}>
+              Selected Works
+            </motion.h3>
+            <motion.div
+              className="more-work-grid"
+              variants={staggerContainer(0.1)}
+            >
               {otherProjects.map((p) => (
-                <ProjectThumb key={p.id} project={p} />
+                <motion.div key={p.id} variants={fadeUpItem}>
+                  <ProjectThumb project={p} />
+                </motion.div>
               ))}
-            </div>
-          </section>
+            </motion.div>
+          </motion.section>
         </main>
       </PageTransition>
     </>

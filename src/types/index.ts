@@ -32,6 +32,7 @@ export interface Project {
   tags: string[];
   year: string;
   description: string;
+  challenge?: string;
   zIndex: number;
   scale: number;
   rotate: number;
