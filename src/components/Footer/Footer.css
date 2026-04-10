@@ -51,7 +51,7 @@
 .footer-copy {
   font-size: var(--font-size-nav);
   font-weight: var(--font-weight-regular);
-  opacity: 0.6;
+  color: var(--color-text-muted);
 }
 
 /* ── Mobile ───────────────────────────────────────────────── */
@@ -72,6 +72,5 @@
 
   .footer-copy {
     font-size: var(--font-size-label);
-    opacity: 0.6;
   }
 }

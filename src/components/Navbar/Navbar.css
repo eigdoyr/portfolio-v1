@@ -38,7 +38,8 @@
 
 .nav-link:hover,
 .nav-link.active {
-  opacity: 0.4;
+  opacity: 1;
+  color: var(--color-text-muted);
 }
 
 .text-left {
