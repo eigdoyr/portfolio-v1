@@ -22,7 +22,7 @@ export const SECTIONS: Section[] = [
       { bold: "Visual and Web Designer and Developer" },
       " based in the ",
       { bold: "Philippines" },
-      " - creating digital experiences that feel intentional, structured, and culturally aware.",
+      " — always chasing good layouts, meaningful design, and good coffee.",
     ],
   },
   {
@@ -47,22 +47,12 @@ export const SECTIONS: Section[] = [
       ". And nearly a decade supporting customers at the ",
       { bold: "Los Angeles Times" },
       " and ",
-      { bold: "Tribune Publishing." },
+      { bold: "Tribune Publishing" },
+      ".",
     ],
   },
   {
     index: "04",
-    label: "Philosophy",
-    content: [
-      "My philosophy is simple: ",
-      { bold: "less, but better" },
-      ". Every layout, component, and interaction I build is shaped by one question — does this make someone's experience ",
-      { bold: "easier" },
-      ", or just busier?",
-    ],
-  },
-  {
-    index: "05",
     label: "Offline",
     content: [
       "Outside of work, I'm drawn to ",

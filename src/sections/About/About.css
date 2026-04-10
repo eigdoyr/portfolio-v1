@@ -1,172 +1,204 @@
+/* =============================================================
+   About.css — Newspaper front page layout
+   ============================================================= */
+
 .about-main {
   position: relative;
   z-index: 1;
   background-color: var(--color-bg);
   color: var(--color-dark);
-  min-height: 100vh;
   width: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 180px var(--page-padding-x) 160px;
-}
-/* ── Reveal ───────────────────────────────────────────────── */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.9s var(--ease-out-expo),
-    transform 0.9s var(--ease-out-expo);
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── Hero ─────────────────────────────────────────────────── */
-/* .about-hero {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: var(--space-2xl);
-  gap: var(--space-lg);
+  justify-content: center;
+  gap: 2.5vh;
+  padding: 80px var(--page-padding-x);
+  overflow: hidden;
 }
 
-.about-name {
-  font-size: 20rem;
-  font-weight: var(--font-weight-medium);
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 1;
-}
-
-.about-role {
-  font-size: var(--font-size-body-lg);
-  opacity: 0.45;
+/* ── Background watermark ─────────────────────────────────── */
+.about-bg-text {
+  position: absolute;
+  bottom: -6vw;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 27.5vw;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-bg-massive);
+  z-index: 0;
+  line-height: 0.7;
   white-space: nowrap;
-} */
-
-/* ── Rule ─────────────────────────────────────────────────── */
-.about-section-rule {
-  width: 100%;
-  height: 1px;
-  background-color: rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: -0.06em;
 }
 
-/* ── Sections ─────────────────────────────────────────────── */
-.about-sections {
+/* ── Header row ───────────────────────────────────────────── */
+.about-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  z-index: 1;
+}
+
+.about-headline {
   display: flex;
   flex-direction: column;
   gap: 0;
-  margin-bottom: var(--space-2xl);
 }
 
-.about-section {
+.about-headline p {
+  font-size: 5.5vw;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 0;
+}
+
+.about-header-right {
+  display: flex;
+  align-items: flex-end;
+}
+
+.about-photo {
+  width: 8vw;
+  min-width: 80px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(100%);
+}
+
+/* ── Rule ─────────────────────────────────────────────────── */
+.about-rule {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+/* ── Three columns ────────────────────────────────────────── */
+.about-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  z-index: 2;
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.about-col {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
-  padding: var(--space-xl) 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  gap: var(--space-sm);
 }
 
-.about-section-inner {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: var(--space-xl);
-  align-items: start;
-}
-
-.about-section-label {
+.about-col-label {
   font-size: var(--font-size-label);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
   opacity: 0.4;
-  padding-top: 6px;
 }
 
-.about-section-body {
-  font-size: var(--font-size-body-lg);
-  line-height: 1.8;
-  /* max-width: 680px; */
+.about-body {
+  font-size: clamp(0.75rem, 0.9vw, 0.95rem);
+  line-height: 1.75;
+  margin: 0;
 }
 
-.about-section-body strong {
+.about-body strong {
   font-weight: var(--font-weight-bold);
-  color: var(--color-dark);
 }
 
-/* ── Experience ───────────────────────────────────────────── */
-.about-experience {
+/* ── Experience list ──────────────────────────────────────── */
+.about-exp-list {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: var(--space-lg);
-  padding-top: var(--space-xl);
-  padding-bottom: 120px; /* ← clears the fixed footer */
-}
-
-.about-exp-grid {
-  display: flex;
-  /* flex-direction: row; */
-  justify-content: space-between;
-  gap: var(--space-lg);
+  gap: var(--space-sm);
 }
 
 .about-exp-item {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .about-exp-company {
-  font-size: var(--font-size-body);
+  font-size: clamp(0.75rem, 0.9vw, 0.95rem);
   font-weight: var(--font-weight-medium);
 }
 
 .about-exp-role {
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-label);
   opacity: 0.4;
 }
 
 /* ── Mobile ───────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .about-main {
-    padding: 120px var(--page-padding-x-mobile) var(--space-xl);
+    height: auto;
+    min-height: 100vh;
+    justify-content: flex-start;
+    overflow-y: auto;
+    padding: 100px var(--page-padding-x-mobile) 120px;
+    gap: var(--space-xl);
   }
 
-  .about-hero {
+  .about-bg-text {
+    display: none;
+  }
+
+  .about-header {
     flex-direction: column;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-xl);
+    align-items: flex-start;
+    gap: var(--space-lg);
   }
 
-  .about-role {
-    white-space: normal;
+  .about-headline p {
+    font-size: clamp(2.5rem, 10vw, 4rem);
   }
 
-  .about-section-inner {
+  .about-photo {
+    width: auto;
+    min-width: unset;
+    aspect-ratio: 3 / 4;
+    object-position: top;
+  }
+
+  .about-columns {
     grid-template-columns: 1fr;
-    gap: var(--space-sm);
+    gap: var(--space-xl);
   }
 
-  .about-exp-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .about-body {
+    font-size: var(--font-size-body);
+  }
+
+  .about-exp-company {
+    font-size: var(--font-size-body);
   }
 }
 
 /* ── Tablet ───────────────────────────────────────────────── */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .about-section-inner {
-    grid-template-columns: 160px 1fr;
+  .about-headline p {
+    font-size: 5vw;
+  }
+
+  .about-photo {
+    width: 10vw;
+  }
+
+  .about-columns {
     gap: var(--space-lg);
   }
-}
 
-/* ── Mobile ───────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .about-exp-grid {
-    flex-direction: column;
-    gap: var(--space-md);
+  .about-body,
+  .about-exp-company {
+    font-size: clamp(0.75rem, 1vw, 0.95rem);
   }
 }
