@@ -36,6 +36,7 @@ export interface Project {
   zIndex: number;
   scale: number;
   rotate: number;
+  images?: string[];
 }
 
 // ─── Route State ──────────────────────────────────────────────

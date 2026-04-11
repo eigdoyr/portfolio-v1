@@ -67,6 +67,27 @@
   max-width: 800px;
 }
 
+/* ── Gallery ──────────────────────────────────────────────── */
+.cs-gallery {
+  max-width: var(--max-width);
+  margin: 0 auto 160px auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.cs-gallery-item {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-muted);
+}
+
+.cs-gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .cs-more-work {
   max-width: var(--max-width);
   margin: 0 auto;

@@ -17,12 +17,10 @@ import "./WorkDetail.css";
 
 const WorkDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-
   const project = useMemo(
     () => projectsData.find((p) => p.slug === slug),
     [slug],
   );
-
   const otherProjects = useMemo(
     () => projectsData.filter((p) => p.slug !== slug),
     [slug],
@@ -45,7 +43,6 @@ const WorkDetail = () => {
       <Helmet>
         <title>{project.title} — Ryodgie</title>
       </Helmet>
-
       <PageTransition key={slug}>
         <main className="case-study-main" id="main-content">
           {/* ── Header ──────────────────────────────────── */}
@@ -96,6 +93,29 @@ const WorkDetail = () => {
               </div>
             </div>
           </motion.section>
+
+          {/* ── Gallery ─────────────────────────────────── */}
+          {project.images && project.images.length > 0 && (
+            <motion.section
+              className="cs-gallery"
+              variants={staggerContainer(0.6)}
+              initial="hidden"
+              animate="show"
+            >
+              {project.images.map((src, i) => (
+                <motion.div
+                  key={src}
+                  className="cs-gallery-item"
+                  variants={fadeUp(i * 0.1)}
+                >
+                  <ImageWithSkeleton
+                    src={src}
+                    alt={`${project.title} — ${i + 1}`}
+                  />
+                </motion.div>
+              ))}
+            </motion.section>
+          )}
 
           {/* ── More work ───────────────────────────────── */}
           <motion.section
