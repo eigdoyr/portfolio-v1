@@ -6,6 +6,7 @@ import { projectsData } from "@data/projects";
 import ProjectThumb from "@components/ProjectThumb/ProjectThumb";
 import PageTransition from "@components/PageTransition/PageTransition";
 import ImageWithSkeleton from "@components/ImageWithSkeleton/ImageWithSkeleton";
+import { galleryItemReveal } from "@utils/animations";
 import {
   headlineVariants,
   headlineItem,
@@ -98,19 +99,20 @@ const WorkDetail = () => {
           {project.images && project.images.length > 0 && (
             <motion.section
               className="cs-gallery"
-              variants={staggerContainer(0.6)}
               initial="hidden"
               animate="show"
+              variants={staggerContainer(0.6)}
             >
               {project.images.map((src, i) => (
                 <motion.div
                   key={src}
                   className="cs-gallery-item"
-                  variants={fadeUp(i * 0.1)}
+                  {...galleryItemReveal(i)}
                 >
                   <ImageWithSkeleton
                     src={src}
                     alt={`${project.title} — ${i + 1}`}
+                    loading="lazy"
                   />
                 </motion.div>
               ))}
