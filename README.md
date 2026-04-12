@@ -2,6 +2,8 @@
 
 Personal portfolio website — Visual & Web Designer and Front-end Developer.
 
+![Hero Preview](public/portfolio-hero.png)
+
 ---
 
 ## Stack
@@ -82,16 +84,6 @@ Personal portfolio website — Visual & Web Designer and Front-end Developer.
 - CSP header
 - Brotli + gzip compression on build
 - Fully responsive — mobile, tablet, desktop
-
----
-
-## Roadmap
-
-- [ ] Add real project images and case study content
-- [ ] Build out WorkDetail gallery sections
-- [ ] Add og:image
-- [ ] Add sitemap.xml and robots.txt
-- [ ] Deploy to Vercel
 
 ---
 
