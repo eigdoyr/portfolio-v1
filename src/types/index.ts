@@ -31,8 +31,9 @@ export interface Project {
   img: string;
   tags: string[];
   year: string;
-  description: string;
-  challenge?: string;
+  category: string;
+  challenge: string;
+  approach: string;
   zIndex: number;
   scale: number;
   rotate: number;

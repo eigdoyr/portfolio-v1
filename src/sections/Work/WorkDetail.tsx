@@ -47,15 +47,17 @@ const WorkDetail = () => {
       <PageTransition key={slug}>
         <main className="case-study-main" id="main-content">
           {/* ── Header ──────────────────────────────────── */}
+          {/* ── Header ──────────────────────────────────── */}
           <motion.header
             className="cs-header"
             variants={headlineVariants}
             initial="hidden"
             animate="show"
           >
-            <motion.h1 className="cs-title" variants={headlineItem}>
-              {project.title}
-            </motion.h1>
+            <motion.div className="cs-header-left" variants={headlineItem}>
+              <h1 className="cs-title">{project.title}</h1>
+              <p className="cs-category">{project.category}</p>
+            </motion.div>
             <motion.div className="cs-meta" variants={headlineItem}>
               {project.tags.map((tag) => (
                 <span key={tag}>{tag}</span>
@@ -85,13 +87,13 @@ const WorkDetail = () => {
             initial="hidden"
             animate="show"
           >
-            <div className="cs-grid">
-              <div className="cs-col-left">
-                <h2>The Challenge</h2>
-              </div>
-              <div className="cs-col-right">
-                <p>{project.challenge ?? project.description}</p>
-              </div>
+            <div className="cs-block">
+              <h2 className="cs-block-label">The Challenge</h2>
+              <p className="cs-block-body">{project.challenge}</p>
+            </div>
+            <div className="cs-block">
+              <h2 className="cs-block-label">The Design Approach</h2>
+              <p className="cs-block-body">{project.approach}</p>
             </div>
           </motion.section>
 
