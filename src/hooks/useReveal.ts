@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 export const useReveal = (delay = 500) => {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let observer: IntersectionObserver;
