@@ -67,10 +67,10 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    font-size: var(--font-size-label);
+    font-size: var(--font-size-body);
   }
 
   .footer-copy {
-    font-size: var(--font-size-label);
+    font-size: var(--font-size-body);
   }
 }

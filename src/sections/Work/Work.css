@@ -43,7 +43,7 @@
   text-transform: uppercase;
   letter-spacing: -0.03em;
   line-height: 0.9;
-  color: var(--color-text-bg-massive);
+  color: var(--color-muted);
 }
 
 .project-card {

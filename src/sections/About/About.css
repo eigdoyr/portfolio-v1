@@ -99,9 +99,9 @@
 
 .about-col-label {
   font-size: var(--font-size-label);
+  color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  opacity: 0.4;
 }
 
 .about-body {
@@ -134,7 +134,7 @@
 
 .about-exp-role {
   font-size: var(--font-size-label);
-  opacity: 0.4;
+  color: var(--color-text-muted);
 }
 
 /* ── Mobile ───────────────────────────────────────────────── */
@@ -199,6 +199,6 @@
 
   .about-body,
   .about-exp-company {
-    font-size: clamp(0.75rem, 1vw, 0.95rem);
+    font-size: var(--font-size-body);
   }
 }

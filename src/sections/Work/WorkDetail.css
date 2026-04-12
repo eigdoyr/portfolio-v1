@@ -39,7 +39,7 @@
 
 .cs-category {
   font-size: var(--font-size-body);
-  opacity: 0.45;
+  color: var(--color-text-muted);
   max-width: 480px;
   line-height: 1.5;
   text-transform: none;
@@ -102,9 +102,9 @@
 .cs-block h2 {
   font-size: var(--font-size-label);
   font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  opacity: 0.4;
 }
 
 .cs-block p {
@@ -191,7 +191,8 @@
   font-size: var(--font-size-label);
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  opacity: 0.5;
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
 }
 
 /* ── Mobile ───────────────────────────────────────────────── */
