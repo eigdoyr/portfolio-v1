@@ -1,22 +1,21 @@
 /* =============================================================
    Design tokens
    ============================================================= */
-
 :root {
   /* ── Colors: Page ─────────────────────────────────────────── */
-  --color-bg: #f1f4f5;
-  --color-dark: #1c1c1c;
-  --color-muted: #d2d2d2;
-  --color-text-muted: #636363;
+  --color-bg: #111111;
+  --color-dark: #f1f4f5;
+  --color-muted: #2e2e2e;
+  --color-text-muted: #a0a0a0;
 
   /* ── Colors: ID Card ──────────────────────────────────────── */
-  --color-card-bg: #1c1c1c;
+  --color-card-bg: #1e1e1e;
   --color-card-text-primary: #ffffff;
-  --color-card-text-muted: #8e8e8e;
+  --color-card-text-muted: #6e6e6e;
 
   /* ── Colors: Misc ─────────────────────────────────────────── */
-  --color-text-bg-massive: rgba(28, 28, 28, 0.06);
-  --color-lanyard-strap: #1a1a1a;
+  --color-text-bg-massive: rgba(241, 244, 245, 0.04);
+  --color-lanyard-strap: #2a2a2a;
 
   /* ── Typography: Families ─────────────────────────────────── */
   --font-sans: "DM Sans", sans-serif;
@@ -64,21 +63,20 @@
 }
 
 /* =============================================================
-   Dark Theme
+   Light Theme Override (system preference)
    ============================================================= */
-[data-theme="dark"] {
-  /* ── Colors: Page ─────────────────────────────────────────── */
-  --color-bg: #111111;
-  --color-dark: #f1f4f5;
-  --color-muted: #2e2e2e;
-  --color-text-muted: #a0a0a0;
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: #f1f4f5;
+    --color-dark: #1c1c1c;
+    --color-muted: #d2d2d2;
+    --color-text-muted: #636363;
 
-  /* ── Colors: ID Card ──────────────────────────────────────── */
-  --color-card-bg: #1e1e1e;
-  --color-card-text-primary: #ffffff;
-  --color-card-text-muted: #6e6e6e;
+    --color-card-bg: #1c1c1c;
+    --color-card-text-primary: #ffffff;
+    --color-card-text-muted: #8e8e8e;
 
-  /* ── Colors: Misc ─────────────────────────────────────────── */
-  --color-text-bg-massive: rgba(241, 244, 245, 0.04);
-  --color-lanyard-strap: #2a2a2a;
+    --color-text-bg-massive: rgba(28, 28, 28, 0.06);
+    --color-lanyard-strap: #1a1a1a;
+  }
 }
