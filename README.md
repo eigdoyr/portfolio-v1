@@ -2,6 +2,7 @@
 
 Personal portfolio website — Visual & Web Designer and Front-end Developer.
 
+![Dark Mode](public/dark-preview.png)
 ![Hero Preview](public/portfolio-hero.png)
 
 ---
@@ -75,13 +76,15 @@ Personal portfolio website — Visual & Web Designer and Front-end Developer.
 - Custom cursor that expands to VIEW on project card hover
 - Lenis smooth scroll on case study and about pages
 - Framer Motion page transitions
+- System-aware dark mode (dark default, light override via prefers-color-scheme)
 - Fluid typography via CSS clamp()
 - Scroll reveal animations on About page
 - Focus trap on Work overlay
 - Keyboard navigation support on project cards
 - Per-page document titles
-- Open Graph and Twitter card meta tags
-- CSP header
+- Open Graph meta tags
+- robots.txt and sitemap.xml
+- CSP header and security headers via vercel.json
 - Brotli + gzip compression on build
 - Fully responsive — mobile, tablet, desktop
 
