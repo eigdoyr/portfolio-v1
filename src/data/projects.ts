@@ -14,7 +14,7 @@ export const projectsData: Project[] = [
     approach:
       "I opted for an elegant, editorial-style layout defined by sophisticated serif typography and striking, large-scale imagery. The design employs a refined grid and strategic use of negative space to intentionally slow the user's journey — reflecting the deliberate, patient process of winemaking itself. The outcome is a clean, premium digital footprint that feels both modern and deeply rooted in tradition.",
     zIndex: 1,
-    scale: 0.92,
+    scale: 1,
     rotate: -3,
     images: [
       "/projects/maison-valmont/01.webp",
@@ -37,7 +37,7 @@ export const projectsData: Project[] = [
     approach:
       "I utilized a clean, minimalist interface anchored by a rigorous grid system and expansive whitespace. By relying on elegant, classic typography to frame the imagery, the photography naturally takes center stage. The layout mimics the pacing of a high-end fashion magazine, resulting in a highly curated, sophisticated browsing experience that lets the work breathe.",
     zIndex: 2,
-    scale: 0.94,
+    scale: 1.1,
     rotate: 2,
     images: [
       "/projects/elena-vora/01.webp",
@@ -60,7 +60,7 @@ export const projectsData: Project[] = [
     approach:
       "I focused on a modern, stripped-back aesthetic that prioritizes absolute clarity. The approach utilized clean layouts, intuitive navigation, and precise typography to guide users effortlessly through the purchasing journey. The structural hierarchy was carefully managed to highlight the organic nature of the product, stripping away unnecessary visual clutter to focus purely on the essentials.",
     zIndex: 3,
-    scale: 0.96,
+    scale: 1.2,
     rotate: -2,
     images: [
       "/projects/verde-brew-co/01.webp",
@@ -83,8 +83,8 @@ export const projectsData: Project[] = [
       "How do you communicate the sensory and ephemeral nature of a scent through a screen? The challenge was to create a digital environment that evoked the specific mood and luxury of the fragrance using purely visual design elements.",
     approach:
       "I took a highly minimalist, spacious approach. By pairing striking imagery with delicate, restrained typography, the design creates a feeling of airy elegance. The layout is intentionally sparse; the deliberate use of negative space draws the eye directly to the product's intricate details and reinforces the brand's refined, luxurious identity.",
-    zIndex: 4,
-    scale: 0.98,
+    zIndex: 2,
+    scale: 1.1,
     rotate: 3,
     images: [
       "/projects/serein/01.webp",
@@ -107,7 +107,7 @@ export const projectsData: Project[] = [
       "Designing a digital journal that respects the raw, analog quality of film photography, while providing a highly readable, organized structure tailored for long-form visual storytelling.",
     approach:
       "I developed a stark, structured aesthetic grounded in a strict grid system. I prioritized highly legible typography and an uncluttered layout to ensure the natural grain and texture of the film photos stood out without distraction. The strict editorial approach ensures the content feels intentionally curated, bridging the gap between a modern digital journal and a printed exhibition catalog.",
-    zIndex: 5,
+    zIndex: 1,
     scale: 1,
     rotate: -1,
     images: [
