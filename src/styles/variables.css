@@ -62,6 +62,12 @@
   --page-padding-x-mobile: 20px;
 }
 
+@media (prefers-color-scheme: dark) {
+  .top-nav,
+  .footer {
+    mix-blend-mode: difference;
+  }
+}
 /* =============================================================
    Light Theme Override (system preference)
    ============================================================= */
