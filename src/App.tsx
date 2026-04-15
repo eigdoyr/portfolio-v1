@@ -13,6 +13,7 @@ import Hero from "@sections/Hero/Hero";
 import Work from "@sections/Work/Work";
 import WorkDetail from "@sections/Work/WorkDetail";
 import About from "@sections/About/About";
+import DotsNav from "@components/DotsNav/DotsNav";
 import Footer from "@components/Footer/Footer";
 import { useRouteState } from "@hooks/useRouteState";
 import { useBodyScrollLock } from "@hooks/useBodyScrollLock";
@@ -53,6 +54,7 @@ const AppShell = () => {
         </AnimatePresence>
         <Work isOpen={isProjects} />
       </main>
+      {(isHome || isProjects || isAbout) && <DotsNav />}
       <Footer />
     </>
   );

@@ -1,0 +1,39 @@
+.dots-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+}
+
+.dots-nav__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-muted);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.dots-nav__dot.active {
+  background-color: var(--color-dark);
+  transform: scale(1.3);
+}
+
+.dots-nav__dot:hover:not(.active) {
+  background-color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .dots-nav {
+    display: flex;
+  }
+}
