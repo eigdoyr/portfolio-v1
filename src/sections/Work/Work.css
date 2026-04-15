@@ -90,17 +90,17 @@
 
 .mobile-dots {
   position: absolute;
-  bottom: 10%;
+  bottom: 22%;
   display: flex;
   gap: var(--space-xs);
   pointer-events: none;
 }
 
 .dot {
-  width: 4px;
-  height: 4px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.2);
   transition:
     background var(--transition-base),
     transform var(--transition-base);
