@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageTransition from "@components/PageTransition/PageTransition";
-import { SECTIONS, EXPERIENCE } from "@data/about";
+import { SECTIONS } from "@data/about";
 import { renderContent } from "@utils/renderContent";
 import {
   headlineVariants,
@@ -13,9 +13,8 @@ import {
 } from "@utils/animations";
 import "./About.css";
 
-const COL_ONE = SECTIONS.find((s) => s.index === "01")!;
-const COL_TWO = SECTIONS.find((s) => s.index === "02")!;
-const COL_OFFLINE = SECTIONS.find((s) => s.index === "04")!;
+const INTRO = SECTIONS.find((s) => s.index === "01")!;
+const COLS = SECTIONS.filter((s) => s.index !== "01");
 
 const About = () => {
   return (
@@ -23,12 +22,13 @@ const About = () => {
       <Helmet>
         <title>About — Ryodgie</title>
       </Helmet>
-      <main className="about-main" id="main-content">
+      <main className="about-main">
+        {/* ── Background watermark ─────────────────────────── */}
         <h2 className="about-bg-text" aria-hidden="true">
           Ryodgie
         </h2>
 
-        {/* ── Header row ──────────────────────────────────── */}
+        {/* ── Header row ───────────────────────────────────── */}
         <div className="about-header">
           <motion.div
             className="about-headline"
@@ -36,8 +36,12 @@ const About = () => {
             initial="hidden"
             animate="show"
           >
-            <motion.p variants={headlineItem}>Creative Developer</motion.p>
-            <motion.p variants={headlineItem}>&amp; Visual Designer</motion.p>
+            <motion.h1 className="about-headline-line" variants={headlineItem}>
+              UI Designer &amp;
+            </motion.h1>
+            <motion.h1 className="about-headline-line" variants={headlineItem}>
+              Front-End Developer
+            </motion.h1>
           </motion.div>
 
           <motion.div
@@ -54,7 +58,17 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* ── Rule ────────────────────────────────────────── */}
+        {/* ── Intro ─────────────────────────────────────────── */}
+        <motion.p
+          className="about-intro"
+          variants={fadeUp(0.2)}
+          initial="hidden"
+          animate="show"
+        >
+          {renderContent(INTRO.content)}
+        </motion.p>
+
+        {/* ── Rule ─────────────────────────────────────────── */}
         <motion.div
           className="about-rule"
           variants={drawRule(0.5)}
@@ -62,35 +76,23 @@ const About = () => {
           animate="show"
         />
 
-        {/* ── Three columns ───────────────────────────────── */}
+        {/* ── Four columns ─────────────────────────────────── */}
         <motion.div
           className="about-columns"
           variants={staggerContainer(0.7)}
           initial="hidden"
           animate="show"
         >
-          <motion.div className="about-col" variants={fadeUpItem}>
-            <span className="about-col-label">Background</span>
-            <p className="about-body">{renderContent(COL_ONE.content)}</p>
-            <p className="about-body">{renderContent(COL_TWO.content)}</p>
-          </motion.div>
-
-          <motion.div className="about-col" variants={fadeUpItem}>
-            <span className="about-col-label">Experience</span>
-            <div className="about-exp-list">
-              {EXPERIENCE.map((item) => (
-                <div key={item.company} className="about-exp-item">
-                  <span className="about-exp-company">{item.company}</span>
-                  <span className="about-exp-role">{item.role}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div className="about-col" variants={fadeUpItem}>
-            <span className="about-col-label">Offline</span>
-            <p className="about-body">{renderContent(COL_OFFLINE.content)}</p>
-          </motion.div>
+          {COLS.map((section) => (
+            <motion.div
+              key={section.index}
+              className="about-col"
+              variants={fadeUpItem}
+            >
+              <span className="about-col-label">{section.label}</span>
+              <p className="about-body">{renderContent(section.content)}</p>
+            </motion.div>
+          ))}
         </motion.div>
       </main>
     </PageTransition>

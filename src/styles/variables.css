@@ -22,7 +22,7 @@
   --font-cursive: "Caveat", cursive;
 
   /* ── Typography: Fluid Scale ──────────────────────────────── */
-  --font-size-display: clamp(3rem, 8vw, 6rem);
+  --font-size-display: clamp(3rem, 8vw, 8rem);
   --font-size-h1: clamp(2rem, 5vw, 3.5rem);
   --font-size-body-lg: clamp(1.1rem, 2vw, 1.5rem);
   --font-size-body: clamp(0.8rem, 1.2vw, 0.95rem);

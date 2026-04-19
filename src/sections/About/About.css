@@ -1,5 +1,5 @@
 /* =============================================================
-   About.css — Newspaper front page layout
+   About.css
    ============================================================= */
 
 .about-main {
@@ -7,7 +7,6 @@
   z-index: 1;
   background-color: var(--color-bg);
   color: var(--color-dark);
-  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -50,13 +49,13 @@
   gap: 0;
 }
 
-.about-headline p {
-  font-size: 5.5vw;
-  font-weight: var(--font-weight-bold);
-  text-transform: uppercase;
+.about-headline-line {
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-medium);
   letter-spacing: -0.03em;
   line-height: 1;
   margin: 0;
+  text-transform: none;
 }
 
 .about-header-right {
@@ -65,12 +64,20 @@
 }
 
 .about-photo {
-  width: 8vw;
+  width: 12vw;
   min-width: 80px;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: top;
   filter: grayscale(100%);
+}
+
+.about-intro {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-text-muted);
+  margin: 0;
+  z-index: 1;
+  max-width: 53ch;
 }
 
 /* ── Rule ─────────────────────────────────────────────────── */
@@ -81,14 +88,13 @@
   z-index: 1;
 }
 
-/* ── Three columns ────────────────────────────────────────── */
+/* ── Four columns ─────────────────────────────────────────── */
 .about-columns {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xl);
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
   z-index: 2;
   position: relative;
-  padding-bottom: 60px;
 }
 
 .about-col {
@@ -99,6 +105,7 @@
 
 .about-col-label {
   font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -108,33 +115,11 @@
   font-size: clamp(0.75rem, 0.9vw, 0.95rem);
   line-height: 1.75;
   margin: 0;
+  /* text-align: justify; */
 }
 
 .about-body strong {
-  font-weight: var(--font-weight-bold);
-}
-
-/* ── Experience list ──────────────────────────────────────── */
-.about-exp-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.about-exp-item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.about-exp-company {
-  font-size: clamp(0.75rem, 0.9vw, 0.95rem);
   font-weight: var(--font-weight-medium);
-}
-
-.about-exp-role {
-  font-size: var(--font-size-label);
-  color: var(--color-text-muted);
 }
 
 /* ── Mobile ───────────────────────────────────────────────── */
@@ -158,8 +143,19 @@
     gap: var(--space-lg);
   }
 
-  .about-headline p {
+  .about-headline-line {
     font-size: clamp(2.5rem, 10vw, 4rem);
+    letter-spacing: 0.03em;
+    line-height: 1.15em;
+  }
+
+  .about-intro {
+    max-width: 100%;
+    line-height: 1.5em;
+  }
+
+  .about-columns {
+    grid-template-columns: 1fr;
   }
 
   .about-photo {
@@ -167,6 +163,7 @@
     min-width: unset;
     aspect-ratio: 3 / 4;
     object-position: top;
+    flex-shrink: 0;
   }
 
   .about-columns {
@@ -177,28 +174,67 @@
   .about-body {
     font-size: var(--font-size-body);
   }
-
-  .about-exp-company {
-    font-size: var(--font-size-body);
-  }
 }
 
 /* ── Tablet ───────────────────────────────────────────────── */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .about-headline p {
+  .about-photo {
+    width: 35vw;
+    min-width: unset;
+    aspect-ratio: 3 / 4;
+    object-position: top;
+    flex-shrink: 0;
+  }
+
+  .about-headline-line {
     font-size: 5vw;
+  }
+
+  .about-photo {
+    width: 8vw;
+    min-width: unset;
+  }
+
+  .about-intro {
+    max-width: 100%;
+    font-size: var(--font-size-body-lg);
+    line-height: 1.25em;
+  }
+
+  .about-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  .about-body {
+    font-size: var(--font-size-body);
+  }
+}
+
+/* ── XL screens (2560px+) ─────────────────────────────────── */
+@media (min-width: 2560px) {
+  .about-headline-line {
+    letter-spacing: 0.01em;
   }
 
   .about-photo {
     width: 10vw;
   }
 
-  .about-columns {
-    gap: var(--space-lg);
+  .about-body {
+    font-size: clamp(1.1rem, 1.2vw, 1.3rem);
   }
 
-  .about-body,
-  .about-exp-company {
-    font-size: var(--font-size-body);
+  .about-intro {
+    font-size: clamp(1.4rem, 1.8vw, 2rem);
+    letter-spacing: 0.01em;
+  }
+
+  .about-col-label {
+    font-size: clamp(0.75rem, 0.6vw, 0.9rem);
+  }
+
+  .about-columns {
+    gap: var(--space-xl);
   }
 }
