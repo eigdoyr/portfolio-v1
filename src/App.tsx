@@ -18,6 +18,7 @@ import Footer from "@components/Footer/Footer";
 import { useRouteState } from "@hooks/useRouteState";
 import { useBodyScrollLock } from "@hooks/useBodyScrollLock";
 import { useLenis } from "@hooks/useLenis";
+import ScrollToTop from "@components/ScrollToTop/ScrollToTop";
 
 const AppShell = () => {
   const { isHome, isProjects, isWorkDetail, isAbout } = useRouteState();
@@ -28,7 +29,8 @@ const AppShell = () => {
 
   return (
     <>
-      {/* Default title — overridden by each page's Helmet */}
+      <ScrollToTop />
+
       <Helmet>
         <title>Ryodgie — Web Developer & Visual Designer</title>
       </Helmet>
