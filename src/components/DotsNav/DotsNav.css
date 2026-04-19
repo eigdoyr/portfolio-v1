@@ -35,5 +35,6 @@
 @media (max-width: 768px) {
   .dots-nav {
     display: flex;
+    bottom: 100px;
   }
 }
