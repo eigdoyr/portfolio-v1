@@ -1,5 +1,7 @@
 # Portfolio V1 — Ryodgie Barnatia
 
+**Live:** [ryodgie-portfolio-v1.vercel.app](https://ryodgie-portfolio-v1.vercel.app)
+
 Personal portfolio website — Visual & Web Designer and Front-end Developer.
 
 ![Dark Mode](public/dark-preview.png)
@@ -25,13 +27,15 @@ Personal portfolio website — Visual & Web Designer and Front-end Developer.
     ├── components/         # Reusable UI pieces
     │   ├── Cursor/
     │   ├── DetailItem/
+    │   ├── DotsNav/
     │   ├── Footer/
     │   ├── ImageWithSkeleton/
     │   ├── LicenseCard/
     │   ├── Navbar/
     │   ├── PageTransition/
     │   ├── ProjectCard/
-    │   └── ProjectThumb/
+    │   ├── ProjectThumb/
+    │   └── ScrollToTop/
     ├── sections/           # Full-page layout units
     │   ├── Hero/
     │   ├── Work/
@@ -43,7 +47,8 @@ Personal portfolio website — Visual & Web Designer and Front-end Developer.
     │   ├── useLenis
     │   ├── useMousePosition
     │   ├── useReveal
-    │   └── useRouteState
+    │   ├── useRouteState
+    │   └── useSwipeNavigation
     ├── data/               # All content lives here
     │   ├── profile.ts
     │   ├── projects.ts
@@ -71,6 +76,7 @@ Personal portfolio website — Visual & Web Designer and Front-end Developer.
 ## Features
 
 - ID card hero with lanyard drop and swing animation
+- Dot navigation with keyboard arrow keys and swipe gestures for page switching
 - Work overlay with dynamic card spread and hover lift
 - Mobile card stack with drag to swipe
 - Custom cursor that expands to VIEW on project card hover
