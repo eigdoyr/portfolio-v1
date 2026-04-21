@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ryodgie-portfolio-v1.vercel.app/sitemap.xml
+Sitemap: https://ryodgie.com/sitemap.xml
