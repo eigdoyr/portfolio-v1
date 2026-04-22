@@ -19,10 +19,12 @@ export const useSwipeNavigation = ({
     if (disabled) return;
 
     let startX = 0;
+    let startY = 0;
     let ignored = false;
 
     const handleTouchStart = (e: TouchEvent) => {
       startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
       ignored = ignoreSelector
         ? !!(e.target as Element).closest(ignoreSelector)
         : false;
@@ -30,9 +32,14 @@ export const useSwipeNavigation = ({
 
     const handleTouchEnd = (e: TouchEvent) => {
       if (ignored) return;
-      const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) < threshold) return;
-      if (diff > 0) onSwipeLeft();
+      const diffX = startX - e.changedTouches[0].clientX;
+      const diffY = startY - e.changedTouches[0].clientY;
+
+      // trigger if horizontal swipe is greater than vertical
+      if (Math.abs(diffX) < Math.abs(diffY)) return;
+      if (Math.abs(diffX) < threshold) return;
+
+      if (diffX > 0) onSwipeLeft();
       else onSwipeRight();
     };
 
