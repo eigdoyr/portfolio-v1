@@ -85,3 +85,14 @@ body.custom-cursor * {
   background-size: 800px 100%;
   animation: skeleton-shimmer 1.6s ease-in-out infinite;
 }
+
+/* ── Reduced motion ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
