@@ -255,3 +255,27 @@
 .stats-grid .detail-item {
   min-width: 0;
 }
+
+/* ── Card font overrides ──────────────────────────────────── */
+.card-container .label {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.075rem;
+}
+
+.card-container .value {
+  font-size: 0.85rem;
+}
+
+.card-container .profile-text h2 {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+}
+
+.card-container .profile-text p {
+  font-size: 0.85rem;
+}
+
+.card-container .card-header {
+  font-size: 0.75rem;
+}
