@@ -2,11 +2,11 @@ import type { LicenseData } from "@/types";
 
 export const licenseData: LicenseData = {
   profile: {
-    name: "RYODGIE",
-    title: "Digital and Visual Designer",
+    name: "RYODGIE BARNATIA",
+    title: "UI Designer & Front-End Developer",
     image: "/profile.png",
   },
-  location: "Philippines GMT +8",
+  location: "",
   idNumber: "08-231995",
   expiration: "Error 404 Not Found",
   stats: [
